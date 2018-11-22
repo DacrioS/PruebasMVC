@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Listado de Configuraciones";
+}
+
+@section initialScripts {
+    <base href="/Configuracion/IndexAPI">
+
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    @*<script src="~/Scripts/Libs/core-js/client/shim.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/Libs/zone.js/dist/zone.js" type="text/javascript"></script>
+    <script src="~/Scripts/Libs/reflect-metadata/Reflect.js" type="text/javascript"></script>
+    <script src="~/Scripts/Libs/systemjs/dist/system.src.js" type="text/javascript"></script>*@
+    <script src="~/node_modules/core-js/client/shim.min.js" type="text/javascript"></script>
+    <script src="~/node_modules/zone.js/dist/zone.js" type="text/javascript"></script>
+    <script src="~/node_modules/systemjs/dist/system.src.js" type="text/javascript"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script src="~/Scripts/systemjs.config.js" type="text/javascript"></script>
+    <script>
+        System.import('../../Scripts/main.js').catch(function (err) { console.error(err); });
+    </script>
+}
+
+<h2>Configuraciones</h2>
+<config-app>Cargando interfaz...</config-app>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

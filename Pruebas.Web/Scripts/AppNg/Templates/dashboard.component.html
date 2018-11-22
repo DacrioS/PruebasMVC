@@ -1,0 +1,10 @@
+﻿<h3>Últimas configuraciones</h3>
+<div class="grid grid-pad">
+    <a *ngFor="let cfg of configs" [routerLink]="['/detail', cfg.ConfiguracionId]" class="col-1-6">
+        <div class="module cfg">
+            <h4>{{cfg.Descripcion}}</h4>
+        </div>
+    </a>
+</div>
+<br /><br /><br /><br /><br />
+<config-search></config-search>

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ModelBDOracle.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CONFIGURACIONES">
+          <Key>
+            <PropertyRef Name="CONFIGURACIONID" />
+          </Key>
+          <Property Name="CONFIGURACIONID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="nvarchar2" MaxLength="100" />
+          <Property Name="VALOR" Type="nvarchar2" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="USUARIOID" />
+          </Key>
+          <Property Name="USUARIOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="LOGIN" Type="nvarchar2" MaxLength="10" Nullable="false" />
+          <Property Name="ACTIVO" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="NOMBRECOMPLETO" Type="nvarchar2" MaxLength="1000" />
+          <Property Name="EMAIL" Type="nvarchar2" MaxLength="50" />
+          <Property Name="ULTIMOACCESO" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ModelBDOracleStoreContainer">
+          <EntitySet Name="CONFIGURACIONES" EntityType="Self.CONFIGURACIONES" Schema="XEPYRADMDES" store:Type="Tables" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="XEPYRADMDES" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelBDOracle" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CONFIGURACIONES">
+          <Key>
+            <PropertyRef Name="CONFIGURACIONID" />
+          </Key>
+          <Property Name="CONFIGURACIONID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VALOR" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="USUARIOID" />
+          </Key>
+          <Property Name="USUARIOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="LOGIN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ACTIVO" Type="Int16" Nullable="false" />
+          <Property Name="NOMBRECOMPLETO" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ULTIMOACCESO" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="EntitiesXepyrDes" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CONFIGURACIONES" EntityType="Self.CONFIGURACIONES" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelBDOracleStoreContainer" CdmEntityContainer="EntitiesXepyrDes">
+          <EntitySetMapping Name="CONFIGURACIONES">
+            <EntityTypeMapping TypeName="ModelBDOracle.CONFIGURACIONES">
+              <MappingFragment StoreEntitySet="CONFIGURACIONES">
+                <ScalarProperty Name="CONFIGURACIONID" ColumnName="CONFIGURACIONID" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIOS">
+            <EntityTypeMapping TypeName="ModelBDOracle.USUARIOS">
+              <MappingFragment StoreEntitySet="USUARIOS">
+                <ScalarProperty Name="USUARIOID" ColumnName="USUARIOID" />
+                <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+                <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+                <ScalarProperty Name="NOMBRECOMPLETO" ColumnName="NOMBRECOMPLETO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="ULTIMOACCESO" ColumnName="ULTIMOACCESO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

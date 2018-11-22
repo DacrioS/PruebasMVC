@@ -1,0 +1,16 @@
+﻿<div *ngIf="config">
+    <h2>Detalles de configuración: {{config.ConfiguracionId}}</h2>
+    <div>
+        <label>Descripción: </label>
+        {{config.Descripcion}}
+    </div>
+    <div>
+        <label>Valor: </label>
+        {{config.Valor}}
+        <br />
+        <label>Nuevo valor: </label>
+        <input [(ngModel)]="config.valor" placeholder="valor">
+    </div>
+    <button (click)="save()">Guardar</button>
+    <button (click)="goBack()">Atrás</button>
+</div>

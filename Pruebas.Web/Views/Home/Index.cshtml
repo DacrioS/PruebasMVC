@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Principal";
+}
+
+<div class="jumbotron">
+    <h1>Demos con MVC</h1>
+    <p class="lead">Desde aquí se pueden acceder a distintas Demos y Pruebas.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Gestionar Configuraciones</h2>
+        <p>
+            Accede a los valores de configuración y realiza operaciones CRUD sobre ellas.
+        </p>
+        <ul>
+            <li>@Html.ActionLink("Configuraciones", "Index", "Configuracion")</li>
+            <li>@Html.ActionLink("Configuraciones via WebAPI", "IndexAPI", "Configuracion")</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h2>Listado de Usuarios de la aplicación</h2>
+        <p>
+            Accede a un listado de usuarios de la aplicación y comprueba su última fecha de acceso.
+        </p>
+        <ul>
+            <li>@Html.ActionLink("Usuarios", "Index", "Usuario")</li>
+        </ul>
+    </div>
+</div>

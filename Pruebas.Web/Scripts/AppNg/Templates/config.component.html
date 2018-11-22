@@ -1,0 +1,20 @@
+﻿<h3>Listado de configuraciones:</h3>
+<div>
+    <label>Descripción:</label> <input #confDesc />
+    <label>Valor:</label> <input #confVal />
+    <button (click)="add(confDesc.value, confVal.value); confDesc.value=''; confVal.value=''">
+        Crear
+    </button>
+</div>
+<ul class="configuraciones">
+    <li *ngFor="let cfg of configs" (click)="onSelect(cfg)" [class.selected]="cfg === selectedConfig">
+        <span class="badge">{{cfg.ConfiguracionId}}</span> {{cfg.Descripcion}}
+        <button class="delete" (click)="delete(cfg); $event.stopPropagation()">x</button>
+    </li>
+</ul>
+<div *ngIf="selectedConfig">
+    <h2>
+        {{selectedConfig.Descripcion}}: {{selectedConfig.Valor}}
+    </h2>
+    <button (click)="gotoDetail()">Ver detalles</button>
+</div>
